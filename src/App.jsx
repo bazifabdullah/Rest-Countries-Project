@@ -1,8 +1,12 @@
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import RegionFilter from "./components/RegionFilter";
+import mockCountries from "./data/mockCountries";
+import CountryGrid from "./components/CountryGrid";
 
 function App() {
+  console.log("App rendering mockCountries:", mockCountries)
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
       <Header />
@@ -11,10 +15,8 @@ function App() {
           <SearchBar />
           <RegionFilter />
         </div>
-
-        <h2 className="text-center text-xl font-semibold opacity-70">
-          Country grid..
-        </h2>
+        {console.log(mockCountries)}
+        <CountryGrid countries={mockCountries} />
       </main>
     </div>
   );
