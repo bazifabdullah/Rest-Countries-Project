@@ -1,15 +1,15 @@
 import { ChevronDown } from "lucide-react";
 
-const RegionFilter = () => {
+const RegionFilter = ({ selectedRegion, setSelectedRegion }) => {
   return (
     <div className="relative flex justify-between items-center bg-white dark:bg-gray-800 shadow-md rounded-md px-4 py-3">
       <select
         className="bg-white dark:bg-gray-800 rounded-md px-4 text-gray-900 dark:text-white outline-none cursor-pointer appearance-none w-full"
         defaultValue=""
+        value={selectedRegion}
+        onChange={(e) => setSelectedRegion(e.target.value)}
         >
-        <option value="" disabled>
-          Filter by Region
-        </option>
+        <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
         <option value="Asia">Asia</option>

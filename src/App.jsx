@@ -10,6 +10,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [search, setSearch] = useState("")
+  const [selectedRegion, setSelectedRegion] = useState("")
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -34,10 +35,12 @@ function App() {
     fetchCountries();
   }, [])
 
-  //Function to show the searched countries
-  const filteredCountries = countries.filter((country) =>
-    country.name.common.toLowerCase().includes(search.toLowerCase())
-  );
+  //Function to filter countries by search and region
+  const filteredCountries = countries.filter((country) => {
+    const matchesSearch = country.name.common.toLowerCase().includes(search.toLowerCase());
+    const matchesRegion = selectedRegion ? country.region === selectedRegion : true;
+    return matchesRegion && matchesSearch;
+  })
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
@@ -45,7 +48,7 @@ function App() {
       <main className="px-6 py-10 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between gap-6 mb-10">
           <SearchBar search={search} setSearch={setSearch}/>
-          <RegionFilter />
+          <RegionFilter selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
         </div>
         
         {loading ? (
