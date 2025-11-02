@@ -40,21 +40,17 @@ Working on this project helped me strengthen my understanding of React and its c
 
 ## Installation & Setup
 
-# 1. Clone this repository
+- 1. Clone this repository
+     git clone https://github.com/bazifabdullah/Rest-Countries-Project.git
 
-git clone https://github.com/bazifabdullah/Rest-Countries-Project.git
+- 2. Clone this repository
+     cd Rest-Countries-Project
 
-# 2. Navigate into the project folder
+- 3. Install dependencies
+     npm install
 
-cd Rest-Countries-Project
-
-# 3. Install dependencies
-
-npm install
-
-# 4. Start the development server
-
-npm run dev
+- 4. Start the development server
+     npm run dev
 
 ## Acknowledgement
 
