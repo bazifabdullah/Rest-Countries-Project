@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -20,13 +20,7 @@ function App() {
       try {
         const response = await axios.get("https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population");
 
-        //Filtering countries that are not real 
-        const filtered = response.data.filter(
-          (country) =>
-          country.name.common !== "Israel"
-        );
-
-        setCountries(filtered)
+        setCountries(response.data)
         setLoading(false)
       } catch (err) {
         console.error("Error fetching countries:", err);
@@ -47,7 +41,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
-      <Header />
+      <Link to={"/"}>
+        {<Header />}
+      </Link>
       <main className="px-6 py-10 max-w-7xl mx-auto">
         <Routes>
           <Route
