@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -21,9 +22,14 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between bg-white dark:bg-gray-800 shadow-md px-6 py-4 transition-colors duration-300">
-      <h1 className="text-lg font-bold text-gray-900 dark:text-white cursor-pointer">
-        Where in the world?
-      </h1>
+      
+      <Link
+       to={"/"}
+      >
+        <h1 className="text-lg font-bold text-gray-900 dark:text-white cursor-pointer">
+          Where in the world?
+        </h1>
+      </Link>
 
       <button
         onClick={() => setDarkMode(!darkMode)}

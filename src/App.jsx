@@ -41,9 +41,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
-      <Link to={"/"}>
-        {<Header />}
-      </Link>
+      {<Header />}
       <main className="px-6 py-10 max-w-7xl mx-auto">
         <Routes>
           <Route
