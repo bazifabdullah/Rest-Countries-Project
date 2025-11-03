@@ -1,6 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -15,6 +15,7 @@ function App() {
   const [error, setError] = useState(null)
   const [search, setSearch] = useState("")
   const [selectedRegion, setSelectedRegion] = useState("")
+  const location = useLocation()
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -71,7 +72,7 @@ function App() {
           <Route path="/country/:name" element={<CountryDetails />} />
         </Routes>
       </main>
-      <Footer />
+      {location.pathname === "/" && <Footer />}
     </div>
   );
 }
