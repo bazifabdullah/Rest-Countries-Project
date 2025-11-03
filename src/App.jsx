@@ -7,6 +7,7 @@ import SearchBar from "./components/SearchBar";
 import RegionFilter from "./components/RegionFilter";
 import CountryGrid from "./components/CountryGrid";
 import CountryDetails from "./components/CountryDetails";
+import Footer from "./components/Footer";
 
 function App() {
   const [countries, setCountries] = useState([])
@@ -70,6 +71,7 @@ function App() {
           <Route path="/country/:name" element={<CountryDetails />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
